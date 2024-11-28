@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Favlist from "./Component/Favlist"
+import Studlist from "./Component/studlist"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Data from "./datacontext";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <Data>
+      <BrowserRouter>
+        <Routes>
+        <Route path="/" element={<Studlist/>}></Route>
+          <Route path="/fav" element={<Favlist/>}>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      </Data>
     </div>
   );
 }
-
 export default App;
